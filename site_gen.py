@@ -43,8 +43,8 @@ SITE_DESC = ("Live cryptocurrency prices, 24h market data and coin guides. "
 REF_URL = "https://web3.binance.com/referral?ref=ME8O8S1F"
 REF_CODE = "ME8O8S1F"
 
-# Google Search Console 验证（用户提供；meta 标签 + 验证文件双保险）
-GSC_VERIFY = "googlea70d9f982413021c"
+# Google Search Console 验证（HTML 标签方式；用户从 GSC 复制的完整 meta）
+GSC_VERIFY = "sbXZhKIbd1htmHsOqOsvtnL2jFkMSAAg3Nk1-gvi2TQ"
 GSC_META = f'<meta name="google-site-verification" content="{GSC_VERIFY}" />'
 
 # 稳定币/稳定币对：跳过（不生成页面）
@@ -506,8 +506,6 @@ def main() -> int:
     (PUBLIC / "sitemap.xml").write_text(sitemap_xml(coins), encoding="utf-8")
     (PUBLIC / "llms.txt").write_text(llms_txt(coins), encoding="utf-8")
     (PUBLIC / "robots.txt").write_text(robots_txt(), encoding="utf-8")
-    # Google 验证文件（HTML 文件验证方式）
-    (PUBLIC / f"{GSC_VERIFY}.html").write_text(GSC_VERIFY, encoding="utf-8")
     # IndexNow key（Bing/Seznam/Yandex 收录加速；key 固定，文件放站点根目录）
     indexnow_key = (BASE / "indexnow.key").read_text(encoding="utf-8").strip() \
         if (BASE / "indexnow.key").exists() else "5f8a2c91e4b34d7f9c6e0d1a2b3c4d5e"

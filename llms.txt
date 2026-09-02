@@ -17,10 +17,10 @@ Live cryptocurrency prices, 24h market data and coin guides. Real-time data from
 - [Arbitrum (ARB) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/arb.html)
 - [Ethena (ENA) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/ena.html)
 - [TRUMP (TRUMP) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/trump.html)
-- [Chainlink (LINK) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/link.html)
 - [Aave (AAVE) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/aave.html)
-- [TRON (TRX) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/trx.html)
+- [Chainlink (LINK) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/link.html)
 - [NEAR Protocol (NEAR) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/near.html)
+- [TRON (TRX) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/trx.html)
 - [SNDKB (SNDKB) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/sndkb.html)
 - [Filecoin (FIL) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/fil.html)
 - [PUMP (PUMP) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/pump.html)
@@ -28,8 +28,8 @@ Live cryptocurrency prices, 24h market data and coin guides. Real-time data from
 - [Cardano (ADA) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/ada.html)
 - [Litecoin (LTC) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/ltc.html)
 - [PROM (PROM) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/prom.html)
-- [ACE (ACE) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/ace.html)
 - [Pepe (PEPE) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/pepe.html)
+- [ACE (ACE) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/ace.html)
 - [T (T) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/t.html)
 - [WLD (WLD) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/wld.html)
 - [CRCLB (CRCLB) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/crclb.html)
@@ -53,7 +53,7 @@ Live cryptocurrency prices, 24h market data and coin guides. Real-time data from
 - [SOXLB (SOXLB) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/soxlb.html)
 - [Polkadot (DOT) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/dot.html)
 - [ROBO (ROBO) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/robo.html)
-- [ONG (ONG) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/ong.html)
+- [PYTH (PYTH) price, 24h high/low, volume and FAQ](https://lumingze-56.github.io/cryptodata-site/coin/pyth.html)
 
 ## Exchange comparisons
 
