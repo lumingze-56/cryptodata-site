@@ -43,6 +43,10 @@ SITE_DESC = ("Live cryptocurrency prices, 24h market data and coin guides. "
 REF_URL = "https://web3.binance.com/referral?ref=ME8O8S1F"
 REF_CODE = "ME8O8S1F"
 
+# Google Search Console 验证（用户提供；meta 标签 + 验证文件双保险）
+GSC_VERIFY = "googlea70d9f982413021c"
+GSC_META = f'<meta name="google-site-verification" content="{GSC_VERIFY}" />'
+
 # 稳定币/稳定币对：跳过（不生成页面）
 STABLES = {"USDC", "FDUSD", "TUSD", "DAI", "USD1", "USDP", "EUR", "BUSD", "AEUR",
            "RLUSD", "U", "USDE", "USDS", "PYUSD", "GUSD", "USDY", "FRAX"}
@@ -220,6 +224,7 @@ def page_compare(p: dict) -> str:
 <title>{p['title']}</title>
 <meta name="description" content="{p['ans'][:155]}">
 <link rel="canonical" href="{SITE_URL}/compare/{slug}.html">
+{GSC_META}
 <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>
 <style>
 body{{font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:860px;margin:0 auto;padding:20px;line-height:1.6;color:#1a1a1a}}
@@ -336,6 +341,7 @@ def page_html(coin: dict) -> str:
 <title>{name} ({sym}) Price Today | Live 24h Data from Binance</title>
 <meta name="description" content="Live {name} price: ${fmt_price(coin['price'])} ({coin['pct']:+.2f}% 24h). Updated hourly from Binance. See 24h high, low, volume and FAQ.">
 <link rel="canonical" href="{SITE_URL}/coin/{sym.lower()}.html">
+{GSC_META}
 <script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>
 <style>
 body{{font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:860px;margin:0 auto;padding:20px;line-height:1.6;color:#1a1a1a}}
@@ -406,6 +412,7 @@ def index_html(coins: list[dict], gainers: list[dict], losers: list[dict]) -> st
 <title>{SITE_NAME} — Live Crypto Prices & 24h Market Data</title>
 <meta name="description" content="{SITE_DESC}">
 <link rel="canonical" href="{SITE_URL}/">
+{GSC_META}
 </head>
 <body>
 <h1>{SITE_NAME} — Live Crypto Prices</h1>
@@ -499,6 +506,8 @@ def main() -> int:
     (PUBLIC / "sitemap.xml").write_text(sitemap_xml(coins), encoding="utf-8")
     (PUBLIC / "llms.txt").write_text(llms_txt(coins), encoding="utf-8")
     (PUBLIC / "robots.txt").write_text(robots_txt(), encoding="utf-8")
+    # Google 验证文件（HTML 文件验证方式）
+    (PUBLIC / f"{GSC_VERIFY}.html").write_text(GSC_VERIFY, encoding="utf-8")
     # IndexNow key（Bing/Seznam/Yandex 收录加速；key 固定，文件放站点根目录）
     indexnow_key = (BASE / "indexnow.key").read_text(encoding="utf-8").strip() \
         if (BASE / "indexnow.key").exists() else "5f8a2c91e4b34d7f9c6e0d1a2b3c4d5e"
