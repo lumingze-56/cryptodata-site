@@ -2,3 +2,14 @@
 ✅ 获取 50 个币种数据
 ✅ 生成 50 个币页 + index.html + sitemap.xml + llms.txt + robots.txt → /root/deepseek/work/crypto-site/public
 📏 答案块词数抽查 (XLM): 158 词 (目标 134-167)
+[main c9a11d1] refresh 2026-09-02-19:56
+ 106 files changed, 1158 insertions(+), 1142 deletions(-)
+ create mode 100644 refresh.log
+ create mode 100755 refresh_job.sh
+To https://github.com/lumingze-56/cryptodata-site.git
+   d8acbc0..c9a11d1  main -> main
+[2026-09-02 19:56 UTC] refresh done
+📡 拉取 Binance 24h 行情…
+✅ 获取 50 个币种数据
+✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
+📏 答案块词数抽查 (ZEC): 158 词 (目标 134-167)

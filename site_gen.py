@@ -116,6 +116,146 @@ def collect(top_n: int) -> list[dict]:
     rows.sort(key=lambda r: r["qvol"], reverse=True)
     return rows[:top_n]
 
+def movers(rows: list[dict], n: int = 5) -> tuple[list[dict], list[dict]]:
+    """从已采集数据中取 24h 涨幅榜/跌幅榜（过滤小成交额垃圾币）。"""
+    liquid = [r for r in rows if r["qvol"] >= 5_000_000]
+    gainers = sorted(liquid, key=lambda r: r["pct"], reverse=True)[:n]
+    losers = sorted(liquid, key=lambda r: r["pct"])[:n]
+    return gainers, losers
+
+# ---- 对比页（买家词，转化最高的内容类型；数据基于 2026 调研，硬编码） ----
+COMPARE_PAGES = [
+    {
+        "slug": "binance-vs-okx",
+        "title": "Binance vs OKX: Which Exchange Is Better in 2026?",
+        "h1": "Binance vs OKX (2026): Fees, Commissions & Features Compared",
+        "ans": ("Binance and OKX are two of the largest cryptocurrency exchanges, but they differ in "
+                "referral rewards, product depth and regional availability. Binance offers the longest "
+                "affiliate attribution window in the industry at 90 days, versus 30 days on OKX, and "
+                "operates the deepest spot and futures liquidity. OKX counters with a strong derivatives "
+                "suite and its own Web3 wallet ecosystem. For most new traders, Binance wins on market "
+                "depth, fee-referral terms and the range of listed assets; OKX is a solid alternative "
+                "when Binance is unavailable in your region. This page compares both exchanges across "
+                "fees, referral commissions, security and supported countries, updated for 2026."),
+        "faq": [
+            ("Is Binance better than OKX?",
+             "Binance generally offers deeper liquidity, more listed assets and a 90-day referral cookie "
+             "window (OKX: 30 days). If Binance is available in your region, most traders find it the "
+             "better all-round choice for spot and futures trading."),
+            ("Which exchange pays higher referral commissions?",
+             "Binance pays up to 50% commission on spot fees for top affiliates (base 20-40%), plus a "
+             "content creator bonus up to $3,000/month. OKX pays 20-40% depending on tier."),
+            ("Can I use both Binance and OKX?",
+             "Yes. Many traders hold accounts on both to compare liquidity and take advantage of each "
+             "platform's promotions."),
+        ],
+        "table": [
+            ("Referral cookie window", "90 days", "30 days"),
+            ("Spot commission (affiliate)", "up to 50%", "up to 40%"),
+            ("Futures commission", "up to 50%", "up to 40%"),
+            ("Liquidity depth", "Highest", "High"),
+            ("Web3 wallet", "Yes", "Yes"),
+            ("Content creator bonus", "Up to $3,000/mo", "No"),
+        ],
+    },
+    {
+        "slug": "binance-vs-bybit",
+        "title": "Binance vs Bybit: Fees, Referrals & Features Compared 2026",
+        "h1": "Binance vs Bybit (2026): Which Crypto Exchange Should You Use?",
+        "ans": ("Binance and Bybit are both top-tier crypto exchanges, but they target slightly different "
+                "traders. Binance is the world's largest exchange with the broadest asset selection and a "
+                "90-day referral attribution window. Bybit is a derivatives-first platform with a popular "
+                "Web3 wallet and strong copy-trading features, but its referral cookie lasts only 30 days. "
+                "For beginners Binance's larger ecosystem and educational resources are easier to grow "
+                "into; for derivatives specialists Bybit's interface may feel more direct. Both support "
+                "spot, futures, staking and a built-in Web3 wallet. This comparison focuses on the "
+                "differences that matter: referral terms, fees, liquidity and regional availability."),
+        "faq": [
+            ("Is Bybit safer than Binance?",
+             "Both are regulated in multiple jurisdictions and hold large trading volumes. Binance has "
+             "the longer track record; Bybit is also a major exchange. Security practices are broadly "
+             "comparable for mainstream users."),
+            ("Which has better referral rewards, Binance or Bybit?",
+             "Binance: 90-day cookie and up to 50% spot commission. Bybit: 30-day cookie and up to 30%. "
+             "Binance's longer attribution window makes it better for content sites and reviews."),
+            ("Which exchange has more coins?",
+             "Binance lists significantly more assets than Bybit across spot and futures markets."),
+        ],
+        "table": [
+            ("Referral cookie window", "90 days", "30 days"),
+            ("Spot commission (affiliate)", "up to 50%", "up to 30%"),
+            ("Futures commission", "up to 50%", "up to 30%"),
+            ("Copy trading", "Yes", "Yes"),
+            ("Asset coverage", "Broadest", "Moderate"),
+            ("Web3 wallet", "Yes", "Yes"),
+        ],
+    },
+]
+
+
+def page_compare(p: dict) -> str:
+    """生成对比页 HTML（含 FAQ schema + 对比表 + 返佣 CTA）。"""
+    slug = p["slug"]
+    faq_json = [{"@type": "Question", "name": q,
+                 "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in p["faq"]]
+    schema = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {"@type": "WebPage", "name": p["title"],
+             "url": f"{SITE_URL}/compare/{slug}.html",
+             "description": p["ans"][:150]},
+            {"@type": "FAQPage", "mainEntity": faq_json},
+        ],
+    }
+    rows = "\n".join(
+        f"<tr><td>{r[0]}</td><td>{r[1]}</td><td>{r[2]}</td></tr>"
+        for r in p["table"]
+    )
+    faq_rows = "\n".join(f"<tr><td>{q}</td><td>{a}</td></tr>" for q, a in p["faq"])
+    return f"""<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{p['title']}</title>
+<meta name="description" content="{p['ans'][:155]}">
+<link rel="canonical" href="{SITE_URL}/compare/{slug}.html">
+<script type="application/ld+json">{json.dumps(schema, ensure_ascii=False)}</script>
+<style>
+body{{font-family:-apple-system,Segoe UI,Roboto,sans-serif;max-width:860px;margin:0 auto;padding:20px;line-height:1.6;color:#1a1a1a}}
+h1{{font-size:1.6rem}}table{{border-collapse:collapse;width:100%;margin:16px 0}}
+th,td{{border:1px solid #ddd;padding:8px 12px;text-align:left}}
+th{{background:#f5f5f5}}a{{color:#0066cc}}footer{{margin-top:40px;border-top:1px solid #eee;padding-top:12px;font-size:.9rem;color:#666}}
+</style>
+</head>
+<body>
+<nav><a href="{SITE_URL}/">← Home</a></nav>
+<h1>{p['h1']}</h1>
+<p><em>Independent comparison · Updated September 2026 · Not financial advice</em></p>
+<h2>Quick Answer</h2>
+<p>{p['ans']}</p>
+<h2>Comparison Table</h2>
+<table>
+<tr><th>Aspect</th><th>Binance</th><th>Competitor</th></tr>
+{rows}
+</table>
+<h2>FAQ</h2>
+<table>
+<tr><th>Question</th><th>Answer</th></tr>
+{faq_rows}
+</table>
+<div style="background:#f0f7ff;border:1px solid #cce5ff;border-radius:8px;padding:16px;margin:24px 0">
+<p><strong>Start with Binance</strong> — the world's largest crypto exchange, with a 90-day referral window.</p>
+<p>Get <strong>up to 80% trading fee commission</strong> and 10% cashback for invitees:<br>
+<a href="{REF_URL}">Register on Binance</a> · Referral code: <code>{REF_CODE}</code></p>
+</div>
+<footer>
+<p>Comparison data compiled from public sources, September 2026. Terms may change; verify on each platform's official page. Not financial advice.</p>
+<p><a href="{SITE_URL}/sitemap.xml">Sitemap</a> · <a href="{SITE_URL}/llms.txt">llms.txt</a></p>
+</footer>
+</body>
+</html>"""
+
 def answer_block(coin: dict) -> str:
     """AEO 答案块：134-167 词，以 'X is ...' 定义句开头，真实数据填充。"""
     sym, name = coin["sym"], coin["coin_name"]
@@ -238,12 +378,26 @@ This page is for information only and is not financial advice. Cryptocurrency is
 </html>"""
     return h
 
-def index_html(coins: list[dict]) -> str:
+def index_html(coins: list[dict], gainers: list[dict], losers: list[dict]) -> str:
     rows = "\n".join(
         f"<tr><td><a href=\"{SITE_URL}/coin/{c['sym'].lower()}.html\">{c['coin_name']} ({c['sym']})</a></td>"
         f"<td>${fmt_price(c['price'])}</td><td>{c['pct']:+.2f}%</td>"
         f"<td>${c['qvol'] / 1e6:,.1f}M</td></tr>"
         for c in coins
+    )
+    g_rows = "\n".join(
+        f"<tr><td><a href=\"{SITE_URL}/coin/{c['sym'].lower()}.html\">{c['sym']}</a></td>"
+        f"<td>${fmt_price(c['price'])}</td><td style=\"color:#0a7d32\">{c['pct']:+.2f}%</td></tr>"
+        for c in gainers
+    )
+    l_rows = "\n".join(
+        f"<tr><td><a href=\"{SITE_URL}/coin/{c['sym'].lower()}.html\">{c['sym']}</a></td>"
+        f"<td>${fmt_price(c['price'])}</td><td style=\"color:#b00000\">{c['pct']:+.2f}%</td></tr>"
+        for c in losers
+    )
+    compare_links = " · ".join(
+        f'<a href="{SITE_URL}/compare/{p["slug"]}.html">{p["title"].split(":")[0]}</a>'
+        for p in COMPARE_PAGES
     )
     return f"""<!DOCTYPE html>
 <html lang="en">
@@ -256,6 +410,18 @@ def index_html(coins: list[dict]) -> str:
 <body>
 <h1>{SITE_NAME} — Live Crypto Prices</h1>
 <p>{SITE_DESC} Updated hourly from the Binance public API. Prices as of {now_utc()}.</p>
+<h2>24h Movers</h2>
+<table style="width:100%">
+<tr><th>Top Gainers</th><th>Price</th><th>24h</th></tr>
+{g_rows}
+</table>
+<table style="width:100%">
+<tr><th>Top Losers</th><th>Price</th><th>24h</th></tr>
+{l_rows}
+</table>
+<h2>Exchange Comparisons</h2>
+<p>{compare_links}</p>
+<h2>All Coins (Top {len(coins)})</h2>
 <table>
 <tr><th>Coin</th><th>Price (USDT)</th><th>24h Change</th><th>24h Volume (USDT)</th></tr>
 {rows}
@@ -276,6 +442,8 @@ def sitemap_xml(coins: list[dict]) -> str:
     urls = [f"<url><loc>{SITE_URL}/</loc><lastmod>{now}</lastmod></url>"]
     urls += [f"<url><loc>{SITE_URL}/coin/{c['sym'].lower()}.html</loc><lastmod>{now}</lastmod></url>"
              for c in coins]
+    urls += [f"<url><loc>{SITE_URL}/compare/{p['slug']}.html</loc><lastmod>{now}</lastmod></url>"
+             for p in COMPARE_PAGES]
     return ('<?xml version="1.0" encoding="UTF-8"?>\n'
             '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
             + "\n".join(urls) + "\n</urlset>\n")
@@ -286,6 +454,9 @@ def llms_txt(coins: list[dict]) -> str:
     for c in coins:
         lines.append(f"- [{c['coin_name']} ({c['sym']}) price, 24h high/low, volume and FAQ]"
                      f"({SITE_URL}/coin/{c['sym'].lower()}.html)")
+    lines += ["", "## Exchange comparisons", ""]
+    for p in COMPARE_PAGES:
+        lines.append(f"- [{p['title']}]({SITE_URL}/compare/{p['slug']}.html)")
     return "\n".join(lines) + "\n"
 
 def robots_txt() -> str:
@@ -314,16 +485,26 @@ def main() -> int:
 
     PUBLIC.mkdir(exist_ok=True)
     (PUBLIC / "coin").mkdir(exist_ok=True)
+    (PUBLIC / "compare").mkdir(exist_ok=True)
     n = 0
     for c in coins:
         (PUBLIC / "coin" / f"{c['sym'].lower()}.html").write_text(
             page_html(c), encoding="utf-8")
         n += 1
-    (PUBLIC / "index.html").write_text(index_html(coins), encoding="utf-8")
+    for p in COMPARE_PAGES:
+        (PUBLIC / "compare" / f"{p['slug']}.html").write_text(
+            page_compare(p), encoding="utf-8")
+    gainers, losers = movers(coins)
+    (PUBLIC / "index.html").write_text(index_html(coins, gainers, losers), encoding="utf-8")
     (PUBLIC / "sitemap.xml").write_text(sitemap_xml(coins), encoding="utf-8")
     (PUBLIC / "llms.txt").write_text(llms_txt(coins), encoding="utf-8")
     (PUBLIC / "robots.txt").write_text(robots_txt(), encoding="utf-8")
-    print(f"✅ 生成 {n} 个币页 + index.html + sitemap.xml + llms.txt + robots.txt → {PUBLIC}")
+    # IndexNow key（Bing/Seznam/Yandex 收录加速；key 固定，文件放站点根目录）
+    indexnow_key = (BASE / "indexnow.key").read_text(encoding="utf-8").strip() \
+        if (BASE / "indexnow.key").exists() else "5f8a2c91e4b34d7f9c6e0d1a2b3c4d5e"
+    (PUBLIC / "indexnow.key").write_text(indexnow_key, encoding="utf-8")
+    (PUBLIC / f"indexnow-{indexnow_key}.txt").write_text(indexnow_key, encoding="utf-8")
+    print(f"✅ 生成 {n} 个币页 + {len(COMPARE_PAGES)} 个对比页 + index/sitemap/llms/robots/IndexNow → {PUBLIC}")
     # 词数抽查
     import random
     sample = random.choice(coins)

@@ -1,0 +1,23 @@
+
+30 23 * * * bash /root/deepseek/work/dsh-backup.sh daily-auto >> /root/deepseek/work/dsh-backups/logs/cron-backup.log 2>&1
+30 12 * * * setsid bash /root/deepseek/work/polymarket/pm_daily_job.sh >/dev/null 2>&1
+30 22 * * * setsid bash /root/deepseek/work/polymarket/pm_daily_job.sh >/dev/null 2>&1
+0 21 * * 0 setsid bash /root/deepseek/work/dsh-weekly-evolution.sh >/dev/null 2>&1
+*/3 * * * * bash /root/deepseek/work/dsh-health-check.sh >/dev/null 2>&1
+*/5 * * * * bash /root/deepseek/work/dsh-wechat-health.sh >/dev/null 2>&1
+0 12 * * * setsid /root/deepseek/work/polymarket/.venv-sports/bin/python3 /root/deepseek/work/polymarket/pm_watch_position.py >> /root/deepseek/work/polymarket/pm_data/daily/position.log 2>&1
+0 22 * * * setsid /root/deepseek/work/polymarket/.venv-sports/bin/python3 /root/deepseek/work/polymarket/pm_watch_position.py >> /root/deepseek/work/polymarket/pm_data/daily/position.log 2>&1
+0 */2 * * * cd /root/deepseek/work/testnet-farm && /root/.nvm/versions/node/v22.23.2/bin/node scripts/monitor.js --chain=all >> /root/deepseek/work/testnet-farm/monitor.log 2>&1
+5 1 * * * cd /root/deepseek/work/testnet-farm && /root/.nvm/versions/node/v22.23.2/bin/node scripts/run-daily.js >> /root/deepseek/work/testnet-farm/daily.log 2>&1
+*/10 * * * * setsid /root/deepseek/work/polymarket/.venv-sports/bin/python3 /root/deepseek/work/polymarket/pm_alerts.py >> /root/deepseek/work/polymarket/pm_data/daily/alerts.log 2>&1
+0 1 * * * setsid bash /root/deepseek/work/polymarket/pm_nightly_cron.sh >/dev/null 2>&1
+30 2 * * * setsid bash /root/deepseek/work/polymarket/pm_nightly_check.sh >/dev/null 2>&1
+*/10 * * * * setsid /root/deepseek/work/polymarket/.venv-sports/bin/python3 /root/deepseek/work/polymarket/pm_obi.py --watch all >> /root/deepseek/work/polymarket/pm_data/daily/alerts.log 2>&1
+*/5 * * * * bash /root/deepseek/work/dsh-memmon.sh
+*/5 * * * * bash /root/deepseek/work/dsh-web-mem-autorestart.sh >/dev/null 2>&1
+0 23 * * * setsid bash /root/deepseek/work/polymarket/pm_auto_daily.sh >/dev/null 2>&1
+*/5 * * * * setsid bash /root/deepseek/work/polymarket/pm_fast_scan.sh >/dev/null 2>&1
+0 * * * * setsid bash /root/deepseek/work/polymarket/pm_llm_scan.sh >/dev/null 2>&1
+0 */4 * * * setsid bash /root/deepseek/work/polymarket/gmgn_tool/gmgn_accumulator.sh >/dev/null 2>&1
+00 20 * * * cd /root/deepseek/work/polymarket/airdrop_tool && PYTHONPATH=. /usr/bin/python3 -m airdrop run >> /root/deepseek/work/polymarket/airdrop_tool/data/run.log 2>&1 # airdrop_tool daily run
+15 9,21 * * * setsid bash /root/deepseek/work/ref-promo/ref_promo_job.sh >/dev/null 2>&1
