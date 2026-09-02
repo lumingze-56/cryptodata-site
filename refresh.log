@@ -13,3 +13,21 @@ To https://github.com/lumingze-56/cryptodata-site.git
 ✅ 获取 50 个币种数据
 ✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
 📏 答案块词数抽查 (ZEC): 158 词 (目标 134-167)
+[main b269f13] refresh 2026-09-02-20:01
+ 118 files changed, 1711 insertions(+), 1236 deletions(-)
+ create mode 100644 compare/binance-vs-bybit.html
+ create mode 100644 compare/binance-vs-okx.html
+ create mode 100644 crontab.bak
+ create mode 100644 indexnow-5f8a2c91e4b34d7f9c6e0d1a2b3c4d5e.txt
+ create mode 100644 indexnow.key
+ create mode 100644 public/compare/binance-vs-bybit.html
+ create mode 100644 public/compare/binance-vs-okx.html
+ create mode 100644 public/indexnow-5f8a2c91e4b34d7f9c6e0d1a2b3c4d5e.txt
+ create mode 100644 public/indexnow.key
+To https://github.com/lumingze-56/cryptodata-site.git
+   c9a11d1..b269f13  main -> main
+[2026-09-02 20:01 UTC] refresh done
+📡 拉取 Binance 24h 行情…
+✅ 获取 50 个币种数据
+✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
+📏 答案块词数抽查 (LTC): 158 词 (目标 134-167)
