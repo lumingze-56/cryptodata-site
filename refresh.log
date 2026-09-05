@@ -515,3 +515,15 @@ indexnow HTTP 200
 ✅ 获取 50 个币种数据
 ✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
 📏 答案块词数抽查 (WLD): 158 词 (目标 134-167)
+[main f483775] refresh 2026-09-05-02:07
+ 107 files changed, 1452 insertions(+), 1338 deletions(-)
+ create mode 100644 coin/sahara.html
+ create mode 100644 public/coin/sahara.html
+To https://github.com/lumingze-56/cryptodata-site.git
+   78bc54c..f483775  main -> main
+indexnow HTTP 200
+[2026-09-05 02:07 UTC] refresh done
+📡 拉取 Binance 24h 行情…
+✅ 获取 50 个币种数据
+✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
+📏 答案块词数抽查 (XRP): 156 词 (目标 134-167)
