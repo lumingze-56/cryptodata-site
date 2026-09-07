@@ -1085,3 +1085,10 @@ indexnow HTTP 200
 ✅ 获取 50 个币种数据
 ✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
 📏 答案块词数抽查 (AVAX): 158 词 (目标 134-167)
+[main dcbf2da] refresh 2026-09-07-07:07
+ 107 files changed, 1372 insertions(+), 1362 deletions(-)
+fatal: unable to access 'https://github.com/lumingze-56/cryptodata-site.git/': Failed to connect to github.com port 443 after 129255 ms: Couldn't connect to server
+📡 拉取 Binance 24h 行情…
+✅ 获取 50 个币种数据
+✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
+📏 答案块词数抽查 (VIRTUAL): 156 词 (目标 134-167)
