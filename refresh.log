@@ -1957,3 +1957,15 @@ indexnow HTTP 200
 ✅ 获取 50 个币种数据
 ✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
 📏 答案块词数抽查 (LTC): 158 词 (目标 134-167)
+[main 03a53a7] refresh 2026-09-10-20:07
+ 107 files changed, 1492 insertions(+), 1378 deletions(-)
+ create mode 100644 coin/saga.html
+ create mode 100644 public/coin/saga.html
+To https://github.com/lumingze-56/cryptodata-site.git
+   0cd2b6c..03a53a7  main -> main
+indexnow HTTP 200
+[2026-09-10 20:07 UTC] refresh done
+📡 拉取 Binance 24h 行情…
+✅ 获取 50 个币种数据
+✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
+📏 答案块词数抽查 (BNB): 158 词 (目标 134-167)
