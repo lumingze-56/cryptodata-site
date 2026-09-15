@@ -3077,3 +3077,15 @@ indexnow HTTP 200
 ✅ 获取 50 个币种数据
 ✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
 📏 答案块词数抽查 (ARB): 158 词 (目标 134-167)
+[main 665f2a8] refresh 2026-09-15-08:07
+ 107 files changed, 1474 insertions(+), 1360 deletions(-)
+ create mode 100644 coin/astr.html
+ create mode 100644 public/coin/astr.html
+To https://github.com/lumingze-56/cryptodata-site.git
+   2627588..665f2a8  main -> main
+indexnow HTTP 200
+[2026-09-15 08:07 UTC] refresh done
+📡 拉取 Binance 24h 行情…
+✅ 获取 50 个币种数据
+✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
+📏 答案块词数抽查 (ARK): 156 词 (目标 134-167)
