@@ -4175,3 +4175,13 @@ indexnow HTTP 200
 ✅ 获取 50 个币种数据
 ✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
 📏 答案块词数抽查 (SOL): 158 词 (目标 134-167)
+[main 2c524e19] refresh 2026-09-19-19:07
+ 107 files changed, 1406 insertions(+), 1396 deletions(-)
+To https://github.com/lumingze-56/cryptodata-site.git
+   3d7f745e..2c524e19  main -> main
+indexnow HTTP 200
+[2026-09-19 19:07 UTC] refresh done
+📡 拉取 Binance 24h 行情…
+✅ 获取 50 个币种数据
+✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
+📏 答案块词数抽查 (MARSCOIN): 156 词 (目标 134-167)
