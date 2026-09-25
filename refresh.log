@@ -5465,3 +5465,43 @@ indexnow HTTP 200
 ✅ 获取 50 个币种数据
 ✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
 📏 答案块词数抽查 (SAGA): 156 词 (目标 134-167)
+[main d72bb890] refresh 2026-09-24-23:07
+ 107 files changed, 1364 insertions(+), 1354 deletions(-)
+To https://github.com/lumingze-56/cryptodata-site.git
+   24ad9d6a..d72bb890  main -> main
+indexnow HTTP 200
+[2026-09-24 23:07 UTC] refresh done
+📡 拉取 Binance 24h 行情…
+Traceback (most recent call last):
+  File "/root/deepseek/work/crypto-site/site_gen.py", line 523, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/root/deepseek/work/crypto-site/site_gen.py", line 483, in main
+    coins = collect(args.top)
+            ^^^^^^^^^^^^^^^^^
+  File "/root/deepseek/work/crypto-site/site_gen.py", line 96, in collect
+    allt = fetch_json(TICKER_URL)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/deepseek/work/crypto-site/site_gen.py", line 77, in fetch_json
+    return json.loads(urllib.request.urlopen(req, timeout=15).read())
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/http/client.py", line 486, in read
+    s = self._safe_read(self.length)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/http/client.py", line 636, in _safe_read
+    data = self.fp.read(cursize)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/socket.py", line 706, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/ssl.py", line 1311, in recv_into
+    return self.read(nbytes, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/ssl.py", line 1167, in read
+    return self._sslobj.read(len, buffer)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TimeoutError: The read operation timed out
+📡 拉取 Binance 24h 行情…
+✅ 获取 50 个币种数据
+✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
+📏 答案块词数抽查 (ADA): 156 词 (目标 134-167)
