@@ -6121,3 +6121,15 @@ indexnow HTTP 200
 ✅ 获取 50 个币种数据
 ✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
 📏 答案块词数抽查 (UNI): 156 词 (目标 134-167)
+[main 93f66e7f] refresh 2026-09-27-11:07
+ 107 files changed, 1470 insertions(+), 1356 deletions(-)
+ create mode 100644 coin/w.html
+ create mode 100644 public/coin/w.html
+To https://github.com/lumingze-56/cryptodata-site.git
+   60ca2de2..93f66e7f  main -> main
+indexnow HTTP 200
+[2026-09-27 11:07 UTC] refresh done
+📡 拉取 Binance 24h 行情…
+✅ 获取 50 个币种数据
+✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
+📏 答案块词数抽查 (PEPE): 158 词 (目标 134-167)
