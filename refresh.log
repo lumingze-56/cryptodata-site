@@ -8633,3 +8633,15 @@ indexnow HTTP 200
 ✅ 获取 50 个币种数据
 ✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
 📏 答案块词数抽查 (GTC): 156 词 (目标 134-167)
+[main bbaaa853] refresh 2026-10-07-15:07
+ 107 files changed, 1448 insertions(+), 1438 deletions(-)
+remote: Internal Server Error        
+remote: Request ID 9FD8:3DC0DC:4B170B:50F6E5:6AC66019        
+remote: Time 2026-10-07T15:07:05Z
+To https://github.com/lumingze-56/cryptodata-site.git
+ ! [remote rejected]   main -> main (Internal Server Error)
+error: failed to push some refs to 'https://github.com/lumingze-56/cryptodata-site.git'
+📡 拉取 Binance 24h 行情…
+✅ 获取 50 个币种数据
+✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
+📏 答案块词数抽查 (TAO): 156 词 (目标 134-167)
