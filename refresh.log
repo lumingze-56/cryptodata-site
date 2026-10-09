@@ -9129,3 +9129,15 @@ indexnow HTTP 200
 ✅ 获取 50 个币种数据
 ✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
 📏 答案块词数抽查 (APT): 156 词 (目标 134-167)
+[main bab3ebae] refresh 2026-10-09-16:07
+ 107 files changed, 1516 insertions(+), 1402 deletions(-)
+ create mode 100644 coin/magic.html
+ create mode 100644 public/coin/magic.html
+To https://github.com/lumingze-56/cryptodata-site.git
+   d2738328..bab3ebae  main -> main
+indexnow HTTP 200
+[2026-10-09 16:07 UTC] refresh done
+📡 拉取 Binance 24h 行情…
+✅ 获取 50 个币种数据
+✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
+📏 答案块词数抽查 (OGN): 156 词 (目标 134-167)
