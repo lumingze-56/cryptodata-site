@@ -13049,3 +13049,15 @@ indexnow HTTP 200
 ✅ 获取 50 个币种数据
 ✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
 📏 答案块词数抽查 (SOL): 158 词 (目标 134-167)
+[main 7be15ae49] refresh 2026-10-25-16:07
+ 107 files changed, 1512 insertions(+), 1396 deletions(-)
+ create mode 100644 coin/aigensyn.html
+ create mode 100644 public/coin/aigensyn.html
+To https://github.com/lumingze-56/cryptodata-site.git
+   1af807143..7be15ae49  main -> main
+indexnow HTTP 200
+[2026-10-25 16:07 UTC] refresh done
+📡 拉取 Binance 24h 行情…
+✅ 获取 50 个币种数据
+✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
+📏 答案块词数抽查 (GTC): 156 词 (目标 134-167)
