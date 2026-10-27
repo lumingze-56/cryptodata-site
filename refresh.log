@@ -13593,3 +13593,13 @@ indexnow HTTP 200
 ✅ 获取 50 个币种数据
 ✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
 📏 答案块词数抽查 (QNT): 158 词 (目标 134-167)
+[main b9225a3fa] refresh 2026-10-27-21:07
+ 107 files changed, 1332 insertions(+), 1322 deletions(-)
+To https://github.com/lumingze-56/cryptodata-site.git
+   aff65c892..b9225a3fa  main -> main
+indexnow HTTP 200
+[2026-10-27 21:07 UTC] refresh done
+📡 拉取 Binance 24h 行情…
+✅ 获取 50 个币种数据
+✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
+📏 答案块词数抽查 (NIL): 156 词 (目标 134-167)
