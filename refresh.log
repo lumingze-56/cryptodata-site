@@ -15429,3 +15429,13 @@ error: failed to push some refs to 'https://github.com/lumingze-56/cryptodata-si
 ✅ 获取 50 个币种数据
 ✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
 📏 答案块词数抽查 (BMT): 156 词 (目标 134-167)
+[main f4e3211d7] refresh 2026-11-04-11:07
+ 107 files changed, 1374 insertions(+), 1362 deletions(-)
+remote: fatal error in commit_refs        
+To https://github.com/lumingze-56/cryptodata-site.git
+ ! [remote rejected]     main -> main (failure)
+error: failed to push some refs to 'https://github.com/lumingze-56/cryptodata-site.git'
+📡 拉取 Binance 24h 行情…
+✅ 获取 50 个币种数据
+✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
+📏 答案块词数抽查 (PUMP): 156 词 (目标 134-167)
