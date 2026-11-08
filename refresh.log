@@ -16301,3 +16301,15 @@ indexnow HTTP 200
 ✅ 获取 50 个币种数据
 ✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
 📏 答案块词数抽查 (GRAM): 156 词 (目标 134-167)
+[main 1e16b77b6] refresh 2026-11-08-01:07
+ 107 files changed, 1394 insertions(+), 1280 deletions(-)
+ create mode 100644 coin/wbeth.html
+ create mode 100644 public/coin/wbeth.html
+To https://github.com/lumingze-56/cryptodata-site.git
+   13b12082f..1e16b77b6  main -> main
+indexnow HTTP 200
+[2026-11-08 01:07 UTC] refresh done
+📡 拉取 Binance 24h 行情…
+✅ 获取 50 个币种数据
+✅ 生成 50 个币页 + 2 个对比页 + index/sitemap/llms/robots/IndexNow → /root/deepseek/work/crypto-site/public
+📏 答案块词数抽查 (SUI): 158 词 (目标 134-167)
